@@ -43,13 +43,13 @@ module Picturefill
                   "(min-device-pixel-ratio: %.1f)" % ratio
                 when nil
                 else
-                  ArgumentError
+                  raise ArgumentError.new("Only Float && Integer allowed")
                 end
         media = "(#{media})" if media
 
         [min, ratio, media].select { |e| !e.nil? }.join(" and ")
       else
-        ArgumentError("Only hash && string allowed")
+        raise ArgumentError.new("Only hash && string allowed")
       end
     end
 

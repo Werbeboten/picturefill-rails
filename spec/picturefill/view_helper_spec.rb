@@ -115,6 +115,24 @@ describe Picturefill::Rails::ViewHelper do
   end
 
 
+  context "when given invalid :ratio" do
+    it "raises an ArgumentError" do
+      expect {
+        setup_image("small.jpg", :ratio => ["evil"])
+      }.to raise_error(ArgumentError)
+    end
+  end
+
+
+  context "when given invalid params" do
+    it "raises an ArgumentError" do
+      expect {
+        setup_image("small.jpg", ["evil"])
+      }.to raise_error(ArgumentError)
+    end
+  end
+
+
 private
 
   def setup_image(*args)
