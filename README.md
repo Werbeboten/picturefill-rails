@@ -1,6 +1,6 @@
 # Picturefill
 
-TODO: Write a gem description
+This is a Rails-Wrapper for picturefill.js: https://github.com/scottjehl/picturefill
 
 ## Installation
 
@@ -18,7 +18,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add this line to your application layout (asset-pipeline enabled)
+
+    = javascript_include_tag 'picturefill.all'
+
+Or w/o asset-pipeline, add these two lines:
+
+    = javascript_include_tag 'matchmedia.min'
+    = javascript_include_tag 'picturefill.min'
 
 ## Contributing
 

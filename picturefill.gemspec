@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Picturefill::VERSION
   gem.authors       = ["Patrick Helm"]
   gem.email         = ["deradon87@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Rails-Wrapper for picturefill.js}
+  gem.summary       = %q{Wraps the javascript lib picturefill, to work with the rails asset-pipeline }
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
