@@ -14,7 +14,7 @@ module Picturefill
 
   private
 
-    # Usage: image("small.jpg", :ratio => 2, :min => 400, :media => 'custom')
+    # Usage: image("small.jpg", :ratio => 2, :min => 400, :media => 'custom', :webkit => false)
     #        image("small.jpg", '(min-width: 400px)')
     def image(src, options = {})
       media = extract_media!(options)
