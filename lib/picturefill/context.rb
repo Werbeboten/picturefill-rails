@@ -35,7 +35,7 @@ module Picturefill
         ratio = options.delete :ratio
         media = options.delete :media
 
-        min   = "(min-width: #{400}px)" if min
+        min   = "(min-width: #{min}px)" if min
         ratio = case ratio
                 when Float
                   "(min-device-pixel-ratio: #{ratio})"

@@ -98,10 +98,10 @@ describe Picturefill::Rails::ViewHelper do
 
 
   context "when given :min, :ratio && :media" do
-    subject { setup_image("small.jpg", :ratio => 2, :min => 400, :media => 'custom') }
+    subject { setup_image("small.jpg", :ratio => 2, :min => 333, :media => 'custom') }
 
     it "renders data-media with given options + custom media" do
-      subject.should include('data-media="(min-width: 400px) and (min-device-pixel-ratio: 2.0) and (custom)')
+      subject.should include('data-media="(min-width: 333px) and (min-device-pixel-ratio: 2.0) and (custom)')
     end
   end
 
