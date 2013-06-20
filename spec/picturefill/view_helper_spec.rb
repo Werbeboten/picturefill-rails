@@ -78,6 +78,14 @@ describe Picturefill::Rails::ViewHelper do
     end
   end
 
+  context "when given :ratio and :webkit => true" do
+    subject { setup_image("small.jpg", :ratio => 2, :webkit => true) }
+
+    it "renders data-media with -webkit-device-ratio" do
+      subject.should include('data-media="(-webkit-min-device-pixel-ratio: 2.0)')
+    end
+  end
+
 
   context "when given :ratio as float" do
     subject { setup_image("small.jpg", :ratio => 2.42) }

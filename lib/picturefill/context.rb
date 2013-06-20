@@ -35,12 +35,15 @@ module Picturefill
         ratio = options.delete :ratio
         media = options.delete :media
 
+        webkit = options.delete :webkit
+        ratio_attribute = webkit ? "-webkit-min-device-pixel-ratio" : "min-device-pixel-ratio"
+
         min   = "(min-width: #{min}px)" if min
         ratio = case ratio
                 when Float
-                  "(min-device-pixel-ratio: #{ratio})"
+                  "(#{ratio_attribute}: #{ratio})"
                 when Integer
-                  "(min-device-pixel-ratio: %.1f)" % ratio
+                  "(#{ratio_attribute}: %.1f)" % ratio
                 when nil
                 else
                   raise ArgumentError.new("Only Float && Integer allowed")
