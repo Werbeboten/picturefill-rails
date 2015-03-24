@@ -71,7 +71,7 @@ describe Picturefill::Rails::ViewHelper do
 
 
   context "when given :ratio" do
-    subject { setup_image("small.jpg", :ratio => 2) }
+    subject { setup_image("small.jpg", ratio: 2) }
 
     it "renders data-media with device-ratio" do
       expect(subject).to include('data-media="(min-device-pixel-ratio: 2.0)')
@@ -79,7 +79,7 @@ describe Picturefill::Rails::ViewHelper do
   end
 
   context "when given :ratio and :webkit => true" do
-    subject { setup_image("small.jpg", :ratio => 2, :webkit => true) }
+    subject { setup_image("small.jpg", ratio: 2, webkit: true) }
 
     it "renders data-media with -webkit-device-ratio" do
       expect(subject).to include('data-media="(-webkit-min-device-pixel-ratio: 2.0)')
@@ -88,7 +88,7 @@ describe Picturefill::Rails::ViewHelper do
 
 
   context "when given :ratio as float" do
-    subject { setup_image("small.jpg", :ratio => 2.42) }
+    subject { setup_image("small.jpg", ratio: 2.42) }
 
     it "renders data-media with device-ratio in given precision" do
       expect(subject).to include('data-media="(min-device-pixel-ratio: 2.42)')
@@ -97,7 +97,7 @@ describe Picturefill::Rails::ViewHelper do
 
 
   context "when given :media" do
-    subject { setup_image("small.jpg", :media => 'custom') }
+    subject { setup_image("small.jpg", media: 'custom') }
 
     it "renders data-media with given :media" do
       expect(subject).to include('data-media="(custom)')
@@ -106,7 +106,7 @@ describe Picturefill::Rails::ViewHelper do
 
 
   context "when given :min, :ratio && :media" do
-    subject { setup_image("small.jpg", :ratio => 2, :min => 333, :media => 'custom') }
+    subject { setup_image("small.jpg", ratio: 2, min: 333, media: 'custom') }
 
     it "renders data-media with given options + custom media" do
       expect(subject).to include('data-media="(min-width: 333px) and (min-device-pixel-ratio: 2.0) and (custom)')
@@ -126,7 +126,7 @@ describe Picturefill::Rails::ViewHelper do
   context "when given invalid :ratio" do
     it "raises an ArgumentError" do
       expect {
-        setup_image("small.jpg", :ratio => ["evil"])
+        setup_image("small.jpg", ratio: ["evil"])
       }.to raise_error(ArgumentError)
     end
   end
