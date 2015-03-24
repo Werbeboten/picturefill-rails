@@ -10,22 +10,22 @@ describe Picturefill::Rails::ViewHelper do
 
   describe "container-span" do
     it "contains data-picture attribute" do
-      subject.should match(/<span[^>]*data-picture/)
+      expect(subject).to match(/<span[^>]*data-picture/)
     end
 
     it "contains alt attribute with description" do
-      subject.should match(/<span[^>]*data-alt=\"description/)
+      expect(subject).to match(/<span[^>]*data-alt=\"description/)
     end
   end
 
 
   describe "noscript" do
     it "contains img-tag with description" do
-      subject.should match(/<noscript><img[^>]*alt="description"/)
+      expect(subject).to match(/<noscript><img[^>]*alt="description"/)
     end
 
     it "contains img-tag with src" do
-      subject.should match(/<noscript><img[^>]*src="\/assets\/default.jpg"/)
+      expect(subject).to match(/<noscript><img[^>]*src="\/assets\/default.jpg"/)
     end
   end
 
@@ -41,7 +41,7 @@ describe Picturefill::Rails::ViewHelper do
     subject { setup_image("small.jpg") }
 
     it "renders one containing span" do
-      subject.should include('<span data-src="/assets/small.jpg">')
+      expect(subject).to include('<span data-src="/assets/small.jpg">')
     end
   end
 
@@ -55,8 +55,8 @@ describe Picturefill::Rails::ViewHelper do
     end
 
     it "renders two containing span" do
-      subject.should include('<span data-src="/assets/small.jpg">')
-      subject.should include('<span data-src="/assets/medium.jpg">')
+      expect(subject).to include('<span data-src="/assets/small.jpg">')
+      expect(subject).to include('<span data-src="/assets/medium.jpg">')
     end
   end
 
@@ -65,7 +65,7 @@ describe Picturefill::Rails::ViewHelper do
     subject { setup_image("small.jpg", :min => 400) }
 
     it "renders data-media with min-width" do
-      subject.should include('data-media="(min-width: 400px)')
+      expect(subject).to include('data-media="(min-width: 400px)')
     end
   end
 
@@ -74,7 +74,7 @@ describe Picturefill::Rails::ViewHelper do
     subject { setup_image("small.jpg", :ratio => 2) }
 
     it "renders data-media with device-ratio" do
-      subject.should include('data-media="(min-device-pixel-ratio: 2.0)')
+      expect(subject).to include('data-media="(min-device-pixel-ratio: 2.0)')
     end
   end
 
@@ -82,7 +82,7 @@ describe Picturefill::Rails::ViewHelper do
     subject { setup_image("small.jpg", :ratio => 2, :webkit => true) }
 
     it "renders data-media with -webkit-device-ratio" do
-      subject.should include('data-media="(-webkit-min-device-pixel-ratio: 2.0)')
+      expect(subject).to include('data-media="(-webkit-min-device-pixel-ratio: 2.0)')
     end
   end
 
@@ -91,7 +91,7 @@ describe Picturefill::Rails::ViewHelper do
     subject { setup_image("small.jpg", :ratio => 2.42) }
 
     it "renders data-media with device-ratio in given precision" do
-      subject.should include('data-media="(min-device-pixel-ratio: 2.42)')
+      expect(subject).to include('data-media="(min-device-pixel-ratio: 2.42)')
     end
   end
 
@@ -100,7 +100,7 @@ describe Picturefill::Rails::ViewHelper do
     subject { setup_image("small.jpg", :media => 'custom') }
 
     it "renders data-media with given :media" do
-      subject.should include('data-media="(custom)')
+      expect(subject).to include('data-media="(custom)')
     end
   end
 
@@ -109,7 +109,7 @@ describe Picturefill::Rails::ViewHelper do
     subject { setup_image("small.jpg", :ratio => 2, :min => 333, :media => 'custom') }
 
     it "renders data-media with given options + custom media" do
-      subject.should include('data-media="(min-width: 333px) and (min-device-pixel-ratio: 2.0) and (custom)')
+      expect(subject).to include('data-media="(min-width: 333px) and (min-device-pixel-ratio: 2.0) and (custom)')
     end
   end
 
@@ -118,7 +118,7 @@ describe Picturefill::Rails::ViewHelper do
     subject { setup_image("small.jpg", '(min-width: 400px)') }
 
     it "renders data-media with given string" do
-      subject.should include('data-media="(min-width: 400px)')
+      expect(subject).to include('data-media="(min-width: 400px)')
     end
   end
 
