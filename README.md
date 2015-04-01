@@ -38,7 +38,7 @@ Or w/o asset-pipeline, add these two lines:
       <%= image(medium_high_dpi_url, :min => 400, :ratio => 1.5, :webkit => true) %>
       <%= image(large_url, :min => 1000) %>
       <%= image(large_high_dpi_url, "(min-width: 1000px) and (min-device-pixel-ratio: 1.5)") %>
-    <%= end %>
+    <% end %>
 
 ## Contributing
 
